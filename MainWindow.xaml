@@ -7,25 +7,26 @@
         mc:Ignorable="d"
 
         Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
-    <Grid>
+    <Grid MenuItem.Click="FilledItemsShow_Click">
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="0,3,0,0">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem x:Name="Exit" Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Doughnuts">
                 <MenuItem Header="Make">
-                    <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                    <MenuItem x:Name="Raised" Header="Raised">
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" Click="sugarToolStripMenuItem_Click" IsCheckable="True" />
                     </MenuItem>
-                    <MenuItem Header="Filled">
-                        <MenuItem x:Name="lemonMenuItem" Header="Lemon"/>
-                        <MenuItem x:Name="chocolateMenuItem" Header="Chocolate"/>
-                        <MenuItem x:Name="vanillaMenuItem" Header="Vanilla"/>
+                    <MenuItem x:Name="Filled" Header="Filled" Click="FilledItems_Click">
+                        <MenuItem x:Name="lemonFilledMenuItem" Header="Lemon" IsCheckable="True"/>
+                        <MenuItem x:Name="chocolateFilledMenuItem" Header="Chocolate" IsCheckable="True"/>
+                        <MenuItem x:Name="vanillaFilledMenuItem" Header="Vanilla" IsCheckable="True"/>
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="Stop"/>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
+                <MenuItem Header="Inventory" Command="ApplicationCommands.Print"></MenuItem>
             </MenuItem>
         </Menu>
 
@@ -61,7 +62,7 @@
                 <TextBox x:Name="txtQuantity" Canvas.Left="80" Canvas.Top="15" Text="" TextWrapping="Wrap" Width="30" FontWeight="Medium"/>
 
                 <Label x:Name="lblType" Content="Type" Canvas.Left="150" Canvas.Top="10" FontWeight="Medium"/>
-                <ComboBox x:Name="cmbType" Canvas.Left="200" Canvas.Top="12.5" Width="200"/>
+                <ComboBox x:Name="cmbType" Canvas.Left="200" Canvas.Top="12.5" Width="200" SelectionChanged="cmbType_SelectionChanged"/>
 
                 <Label x:Name="lblPrice" Content="Price" Canvas.Left="425" Canvas.Top="10" FontWeight="Medium"/>
                 <TextBox x:Name="txtPrice" Text="0"  Canvas.Left="475" Canvas.Top="15" TextWrapping="Wrap" Width="100" FontWeight="Medium"/>
@@ -71,9 +72,9 @@
                 <Label x:Name="lblTotal" Content="Total" Canvas.Left="360" Canvas.Bottom="10" FontWeight="Bold"/>
                 <TextBox x:Name="txtTotal" Text="0"  Canvas.Left="425" Canvas.Bottom="15" TextWrapping="Wrap" Width="150" FontWeight="Bold" IsReadOnly="True"/>
 
-                <Button x:Name="btnAddToSale" Content="Add To Sale" Canvas.Right="10" Canvas.Top="50" Width="100" Height="30" FontWeight="Medium"/>
-                <Button x:Name="btnRemoveItem" Content="Remove Item" Canvas.Right="10" Canvas.Top="90" Width="100" Height="30" FontWeight="Medium"/>
-                <Button x:Name="btnCheckout" Content="Checkout" Canvas.Right="10" Canvas.Bottom="10" Width="100" Height="30" FontWeight="Bold"/>
+                <Button x:Name="btnAddToSale" Content="Add To Sale" Canvas.Right="10" Canvas.Top="50" Width="100" Height="30" FontWeight="Medium" Click="btnAdd_Click"/>
+                <Button x:Name="btnRemoveItem" Content="Remove Item" Canvas.Right="10" Canvas.Top="90" Width="100" Height="30" FontWeight="Medium" Click=" btnRemoveItem_Click"/>
+                <Button x:Name="btnCheckout" Content="Checkout" Canvas.Right="10" Canvas.Bottom="10" Width="100" Height="30" FontWeight="Bold" Click=" btnCheckOut_Click"/>
 
             </Canvas>
 
