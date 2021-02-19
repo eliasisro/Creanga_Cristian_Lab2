@@ -236,7 +236,7 @@ namespace Creanga_Cristian_Lab2
                 }
             }
         }
-
+        //
         private void CtrlP_CommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             MessageBox.Show("You have in stock:" + mRaisedGlazed + " Glazed," + mRaisedSugar + "Sugar, "+mFilledLemon+" Lemon, "+mFilledChocolate+" Chocolate, "+mFilledVanilla+" Vanilla"
